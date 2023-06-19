@@ -1,0 +1,45 @@
+package Projeto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Professor extends Pessoa {
+    private int id_professor;
+    private List<String> diasAula;
+
+    public Professor() {
+
+    }
+
+    public Professor(int id_professor, String nome, String cpf, String endereco, String email, String telefone) {
+        super(nome, cpf, endereco, email, telefone);
+        this.id_professor = id_professor;
+        this.diasAula = new ArrayList<>();
+    }
+
+    public boolean podeMinistrarAula(String dia) {
+        if (diasAula.contains(dia)) {
+            return false; // O professor já tem aula nesse dia
+        } else {
+            return true; // O professor não tem aula nesse dia
+        }
+    }
+
+    public void adicionarDiaAula(String dia) {
+        if (podeMinistrarAula(dia)) {
+            diasAula.add(dia);
+            System.out.println("Aula adicionada com sucesso para o dia " + dia);
+        } else {
+            System.out.println("O professor já tem aula agendada para o dia " + dia);
+        }
+    }
+
+    public void removerDiaAula(String dia) {
+        if (diasAula.contains(dia)) {
+            diasAula.remove(dia);
+            System.out.println("Aula removida com sucesso para o dia " + dia);
+        } else {
+            System.out.println("O professor não tem aula agendada para o dia " + dia);
+        }
+    }
+}
