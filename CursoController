@@ -1,0 +1,19 @@
+package Projeto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CursoController {
+    private List<Curso> cursos = new ArrayList<>();
+
+    public void criarCurso(int id_curso, String nome, int cargaHoraria, String descricao) {
+        Curso curso = new Curso(id_curso, nome, cargaHoraria, descricao);
+        cursos.add(curso);
+        System.out.println(" ");
+        System.out.println("Curso criado com sucesso.");
+    }
+    
+    public List<Curso> listarCursos() {
+        return cursos;
+    }
+}
