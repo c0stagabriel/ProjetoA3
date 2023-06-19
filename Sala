@@ -1,0 +1,53 @@
+package Projeto;
+
+public class Sala {
+	private int id_sala;
+	private String nome;
+	private String local;
+	private int capacidade = 30;
+	
+	public Sala() {
+		
+	}	
+	
+	public Sala(int id_sala, String nome, String local, int capacidade) {
+		super();
+		this.id_sala = id_sala;
+		this.nome = nome;
+		this.local = local;
+		this.capacidade = capacidade;
+	}
+
+	public int getId_sala() {
+		return id_sala;
+	}
+
+	public void setId_sala(int id_sala) {
+		this.id_sala = id_sala;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getLocal() {
+		return local;
+	}
+
+	public void setLocal(String local) {
+		this.local = local;
+	}
+
+	public int getCapacidade() {
+		return capacidade;
+	}
+
+	public void setCapacidade(int capacidade) {
+		this.capacidade = capacidade;
+	}
+	
+}
