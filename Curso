@@ -1,0 +1,54 @@
+package Projeto;
+
+public class Curso {
+	private int id_curso;
+	private String nome;
+	private int cargaHoraria;
+	private String descricao;
+	
+	public Curso() {
+		
+	}
+	
+	public Curso(int id_curso, String nome, int cargaHoraria, String descricao) {
+		super();
+		this.id_curso = id_curso;
+		this.nome = nome;
+		this.cargaHoraria = cargaHoraria;
+		this.descricao = descricao;
+	}
+
+
+	public int getIdcurso() {
+		return id_curso;
+	}
+
+	public void setIdcurso(int id_curso) {
+		this.id_curso = id_curso;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public int getCargaHoraria() {
+		return cargaHoraria;
+	}
+
+	public void setCargaHoraria(int cargaHoraria) {
+		this.cargaHoraria = cargaHoraria;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	
+}
