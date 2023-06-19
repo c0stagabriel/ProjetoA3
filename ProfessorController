@@ -1,0 +1,20 @@
+package Projeto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ProfessorController {
+    private List<Professor> professores = new ArrayList<>();
+// ArrayList é uma classe do Java, que pode aumentar ou diminuir conforme necessário
+    
+    public void criarProfessor(int id_professor, String nome,  String cpf, String endereco, String email, String telefone) {
+        Professor professor = new Professor(id_professor, nome, cpf, endereco, email, telefone);
+        professores.add(professor);
+        System.out.println(" ");
+        System.out.println("Professor criado com sucesso.");
+    }
+    
+    public List<Professor> listarProfessores() {
+        return professores;
+    }
+}
