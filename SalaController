@@ -1,0 +1,35 @@
+package Projeto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class SalaController {
+    private List<Sala> salas = new ArrayList<>();
+
+    public void criarSala(int id_sala, String nome, String local, int capacidade) {
+        Sala sala = new Sala(id_sala, nome, local, capacidade);
+        salas.add(sala);
+    }
+    
+    public List<Sala> listarSalas() {
+        return salas;
+    }
+    
+    public void criarSalasManualmente() {
+        criarSala(1, "A1", "Bloco A, Sala 1", 30);
+        criarSala(2, "A2", "Bloco A, Sala 2", 30);
+        criarSala(3, "A3", "Bloco A, Sala 3", 30);
+        criarSala(4, "A4", "Bloco A, Sala 4", 30);
+        criarSala(5, "A5", "Bloco A, Sala 5", 30);
+        criarSala(6, "A6", "Bloco A, Sala 6", 30);
+        criarSala(7, "A7", "Bloco A, Sala 7", 30);
+        criarSala(8, "A8", "Bloco A, Sala 8", 30);
+        criarSala(9, "A9", "Bloco A, Sala 9", 30);
+        criarSala(10, "A10", "Bloco A, Sala 10", 30);
+        criarSala(11, "A11", "Bloco A, Sala 11", 30);
+        criarSala(12, "A12", "Bloco A, Sala 12", 30);
+        criarSala(13, "A13", "Bloco A, Sala 13", 30);
+        criarSala(14, "A14", "Bloco A, Sala 14", 30);
+        criarSala(15, "A15", "Bloco A, Sala 15", 30);
+    }
+}
