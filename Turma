@@ -1,0 +1,61 @@
+package Projeto;
+
+public class Turma {
+    private int id_turma;
+    private String nome;
+    private int id_sala;
+    private String curso;
+    private String diaSemana;
+
+    public Turma() {
+
+    }
+
+    public Turma(int id_turma, String nome, int id_sala, String curso, String diaSemana) {
+        this.id_turma = id_turma;
+        this.nome = nome;
+        this.id_sala = id_sala;
+        this.curso = curso;
+        this.diaSemana = diaSemana;
+    }
+
+    public int getId_turma() {
+        return id_turma;
+    }
+
+    public void setId_turma(int id_turma) {
+        this.id_turma = id_turma;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getId_sala() {
+        return id_sala;
+    }
+
+    public void setId_sala(int id_sala) {
+        this.id_sala = id_sala;
+    }
+
+    public String getCurso() {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
+    public String getDiaSemana() {
+        return diaSemana;
+    }
+
+    public void setDiaSemana(String diaSemana) {
+        this.diaSemana = diaSemana;
+    }
+}
