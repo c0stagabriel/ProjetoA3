@@ -1,0 +1,19 @@
+package Projeto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class TurmaController {
+    private List<Turma> turmas = new ArrayList<>();
+
+    public void criarTurma(int id_turma, String nome, int id_sala, String curso, String diaSemana) {
+        Turma turma = new Turma(id_turma, nome, id_sala, curso, diaSemana);
+        turmas.add(turma);
+        System.out.println(" ");
+        System.out.println("Turma criada com sucesso.");
+    }
+    
+    public List<Turma> listarTurmas() {
+        return turmas;
+    }
+}
