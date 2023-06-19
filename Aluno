@@ -1,0 +1,24 @@
+package Projeto;
+
+public class Aluno extends Pessoa{
+	
+	private int id_aluno;
+	
+	public Aluno() {
+		
+	}
+	
+	public Aluno(int id_aluno, String nome, String cpf, String endereco, String email, String telefone){
+		super(nome, cpf, endereco, email, telefone);
+		 this.id_aluno = id_aluno;
+	}
+	
+	public int getId_aluno() {
+        return id_aluno;
+    }
+	
+	 public void setId_aluno(int id_aluno) {
+	        this.id_aluno = id_aluno;
+	    }
+
+}
