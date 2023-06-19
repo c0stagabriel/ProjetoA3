@@ -1,0 +1,146 @@
+package Projeto;
+
+import java.util.List;
+import java.util.Scanner;
+												// falta fazer o BD
+												// botar dia da semana e não deixar o professor dar aula no mesmo dia em duas salas
+												// não deixar duas turmas no mesmo dia na mesma sala
+public class Principal {
+    public static void main(String[] args) {
+        AlunoController alunoController = new AlunoController();
+        ProfessorController professorController = new ProfessorController();
+        SalaController salaController = new SalaController();
+        CursoController cursoController = new CursoController();
+        TurmaController turmaController = new TurmaController();
+
+        Scanner scanner = new Scanner(System.in);
+        boolean continuarExecucao = true;
+        salaController.criarSalasManualmente();
+
+        while (continuarExecucao) {
+            System.out.println(" ");
+            System.out.println("--- Sistema de Controle de Alunos ---");
+            System.out.println("1. Criar Aluno");
+            System.out.println("2. Criar Professor");
+            System.out.println("3. Listar Salas");
+            System.out.println("4. Criar Curso");
+            System.out.println("5. Criar Turma");
+            System.out.println("6. Listar Cursos Ativos");
+            System.out.println("0. Sair do sistema");
+            System.out.print("Opção: ");
+            int opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    System.out.println(" ");
+                    System.out.println("--- Criar Aluno ---");
+                    System.out.println("Matrícula: ");
+                    int id_aluno = scanner.nextInt();
+                    System.out.print("Nome Completo: ");
+                    scanner.nextLine(); // para poder digitar mais de duas palavras
+                    String nome = scanner.nextLine();
+                    System.out.println("CPF (somente números): ");
+                    String cpf = scanner.next();
+                    System.out.println("Endereço: ");
+                    scanner.nextLine(); // para poder digitar mais de duas palavras
+                    String endereco = scanner.nextLine();
+                    System.out.println("Email: ");
+                    String email = scanner.next();
+                    System.out.println("Celular: ");
+                    String telefone = scanner.next();
+
+                    alunoController.criarAluno(id_aluno, nome, cpf, endereco, email, telefone);
+                    break;
+
+                case 2:
+                    System.out.println(" ");
+                    System.out.println("--- Criar Professor ---");
+                    System.out.print("Código: ");
+                    int id_professor = scanner.nextInt();
+                    System.out.print("Nome Completo: ");
+                    scanner.nextLine(); // para poder digitar mais de duas palavras
+                    String nomeProfessor = scanner.nextLine();
+                    System.out.print("CPF: ");
+                    String cpfProfessor = scanner.next();
+                    System.out.println("Endereço: ");
+                    scanner.nextLine(); // para poder digitar mais de duas palavras
+                    String enderecoProfessor = scanner.nextLine();
+                    System.out.print("Email: ");
+                    String emailProfessor = scanner.next();
+                    System.out.print("Celular: ");
+                    String telefoneProfessor = scanner.next();
+
+                    professorController.criarProfessor(id_professor, nomeProfessor, cpfProfessor, enderecoProfessor, emailProfessor, telefoneProfessor);
+                    break;
+
+                case 3:
+                    System.out.println(" ");
+                    System.out.println("--- Listar Salas Disponíveis ---");
+                    List<Sala> salas = salaController.listarSalas();
+                    for (Sala sala : salas) {
+                        System.out.println("ID: " + sala.getId_sala());
+                        System.out.println("Nome: " + sala.getNome());
+                        System.out.println("Local: " + sala.getLocal());
+                        System.out.println("Capacidade: " + sala.getCapacidade());
+                        System.out.println("---------------------------------");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println(" ");
+                    System.out.println("--- Criar Curso ---");
+                    System.out.print("Código: ");
+                    int codigoCurso = scanner.nextInt();
+                    System.out.print("Nome: ");
+                    scanner.nextLine();
+                    String nomeCurso = scanner.nextLine();
+                    System.out.print("Carga Horária (em horas): ");
+                    int cargaHoraria = scanner.nextInt();
+                    System.out.print("Descrição: ");
+                    scanner.nextLine();
+                    String descricao = scanner.nextLine();
+
+                    cursoController.criarCurso(codigoCurso, nomeCurso, cargaHoraria, descricao);
+                    break;
+
+                case 5:
+                    System.out.println(" ");
+                    System.out.println("--- Criar Turma ---");
+                    System.out.print("Código: ");
+                    int codigoTurma = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Nome: ");
+                    String nomeTurma = scanner.nextLine();
+                    System.out.print("Código da Sala: ");
+                    int codigoSalaTurma = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.print("Código do Curso: ");
+                    String codigoCursoTurma = scanner.nextLine();
+                    scanner.nextLine();
+                    System.out.print("Dia da Semana: ");
+                    String diaSemana = scanner.nextLine();
+
+                    turmaController.criarTurma(codigoTurma, nomeTurma, codigoSalaTurma, codigoCursoTurma, diaSemana);
+                    break;
+
+                case 6:
+                    System.out.println(" ");
+                    System.out.println("--- Listar Cursos Ativos ---");
+
+                    ListaController listaController = new ListaController(cursoController);
+                    listaController.listarCursosAtivos();
+                    break;
+
+                case 0:
+                    continuarExecucao = false;
+                    System.out.println(" ");
+                    System.out.println("--- Encerramento ---");
+                    System.out.println("Encerrado com sucesso. Até a próxima!");
+                    System.out.println("---------------------------------");
+                    break;
+            }
+        }
+        scanner.close();
+    }
+}
+               
